@@ -12,19 +12,19 @@ class Stack
   end
 
   def push(val)
+    node = Node.new(val)
     if @top.nil?
-      @top = Node.new(val)
+      @top = node
     else
-      new_node = Node.new(val)
-      new_node.next = @top
-      @top = new_node
+      node.next = @top
+      @top = node
     end
     val
   end
 
   def pop
-    return nil if empty?
-    popped_val = peek 
+    return if empty?
+    popped_val = peek
     @top = @top.next
     popped_val
   end
