@@ -44,7 +44,7 @@ class Heap
   def heapify_down!
     i = 0
     min_child_idx = child_indeces(i).min_by {|idx| @store[idx]}
-    while (i <= parent_idx(@store.length - 1) && min_child_idx &&
+    while (min_child_idx &&
       @store[i] > @store[min_child_idx])
         swap!(i, min_child_idx)
         i = min_child_idx
