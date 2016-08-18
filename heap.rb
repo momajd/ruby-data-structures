@@ -14,7 +14,8 @@ class Heap
   end
 
   def pop_min
-    popped_val = @store.shift
+    swap!(0, @store.length - 1) #swap first and last el then heapify down
+    popped_val = @store.pop
     heapify_down!
     popped_val
   end
