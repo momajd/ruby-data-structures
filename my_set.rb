@@ -18,7 +18,7 @@ class MySet
     removed
   end
 
-  def has_key?(key)
+  def contains?(key)
     bucket(key).include?(key)
   end
 
@@ -45,10 +45,7 @@ class MySet
     old_store = @store
     @store = Array.new(num_buckets * 2) {Array.new}
     @count = 0
-    old_store.each do |bucket|
-      bucket.each do |key|
-        self.add(key)
-      end
-    end
+    
+    old_store.flatten.each {|key| self.add(key)}
   end
 end
