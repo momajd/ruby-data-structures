@@ -28,17 +28,17 @@ class RingBuffer
 
   def pop
     raise 'out of bounds' if @count == 0
-    count -= 1
     deleted = self[@count - 1]
     self[@count - 1] = nil
+    @count -= 1
     deleted
   end
 
   def shift
     raise 'out of bounds' if @count == 0
-    @count -= 1
     deleted = self[0]
     self[0] = nil
+    @count -= 1
     @start_idx += 1
     deleted
   end
