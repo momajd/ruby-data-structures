@@ -2,6 +2,7 @@ class Heap
   def initialize
     @store = []
   end
+  attr_reader :store
 
   def min
     @store.first

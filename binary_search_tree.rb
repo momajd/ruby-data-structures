@@ -5,12 +5,27 @@ class BSTNode
   end
   attr_accessor :val, :left, :right
 
-  def insert(val, root = self)
-    if val < @val
-      root.left ? insert(val, root.left) : root.left = BSTNode.new(val)
+  def insert(val)
+    puts self.val
+    if val < self.val
+      self.left ? self.left.insert(val) : self.left = BSTNode.new(val)
     else
-      root.right ? insert(val, root.right) : root.right = BSTNode.new(val)
+      self.right ? self.right.insert(val) : self.right = BSTNode.new(val)
     end
     val
+  end
+
+  def find(val)
+    return self if @val == val
+
+    if val < self.val
+      self.left.find(val)
+    else
+      self.right.find(val)
+    end
+  end
+
+  def delete(val)
+    # if node.left.nil? && node.right.nil?
   end
 end
