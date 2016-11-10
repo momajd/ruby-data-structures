@@ -14,9 +14,8 @@ class PriorityQueue
 
   def pop_highest_priority
     priority = @heap.pop_min
-    res = @map[priority]
-    @map.delete(priority)
-    res
+    value = @map.delete(priority)
+    [value, priority]
   end
 
   def peek
